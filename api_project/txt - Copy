@@ -1,0 +1,302 @@
+This app is Django application Without Rest api.
+
+API: Application programming Interface.
+Cleint app wants to communicate with django app, for this we need to provide an interface
+so that they can communicate with each other.
+One app wants to communicate two another app we need API.
+Interoperability
+
+1)web api/web services:
+    Develop api for this web app
+    Service provided by web application over web by using HTTP protocol
+    http://128.0.0.1:8000/api/1/  etc. api only
+    Python app can send request and get response from django app.(python app can use the service provided by django app.)
+
+2)Rest api
+    Rest api /Restful api
+    REST---Representational State Transfer Protocol.
+    It is an architectural styles that provides guidelines to develope web api very easily's.
+    APIs which are developed by usig REST.
+
+3)Django Rest Framework
+    DRF-severals tools to develop restful apis
+    drf provides coding support to create web api.
+
+
+1)To develope Django app
+2)To develop django API--->so that our services can be used by other apps etc.
+
+
+
+How to apps communicate with each other.
+1)common language is http--->
+2)commom message format --json (performance,lightweight)
+
+
+
+Two types of web services are available-->
+1)SOAP based web services 
+2)REST restful web services json based
+
+differnce between rest and soap
+
+SOAP based web services(XML):
+SOAP ( Simple Object Access Protocol) is a message protocol that allows distributed elements of an application to communicate.
+        Protocols supported by soap: http/smtp/ftp   
+        Data is more secured compared to rest based service
+        It is an old concept with problems
+        Soap is always xml based whcih is old nowdays
+        XML is a heavy weight component(format of xml)
+        xml message-->envelop with extra information so heavy weight.
+        This heavy data is required to travel over the network from one to another ,so high bandwidth is there.
+        parsing (xml data --readable xml data)xml data is not easy..low performance
+        Implementing soap based services are complex
+        WSDL(Web Services Description Language) to expose/describe web services to partner app() one common language is there
+        large amout of data can be tansfered compared to restful
+        more secure as compare to restful
+
+
+REST: 
+REpresentational State Transfer Protocol.
+    Each unique url is associated with representation of an object(resouce) by using http verbs so that we can play with that object
+    to get content of thios object(get), create(post),upadte(put),delete(delete)
+    based on http protocol with url
+    
+Restful web services:(JSON)
+
+        1)json bsed restful web services
+        2)lightweight component based on the structure
+        3)parsing is easy as compared to soap
+        4)lightwirgt,so transfer over net is easy
+        5)high performance
+        6)Directly we can exposes our services using url,so no requirement of wsdl in restful
+        7)Easy development
+        8)Human understandable message format
+
+
+        problem:
+        1)less secure
+        2)supports mostly or only http
+        3)json form data--->Limit is there on data that can be sent using rest.
+
+
+____________________________________________
+Examples:
+Most of the google web services are soap based
+yahoo-REST
+Ebay,amazone-Both
+django---REST based only
+
+
+______________________________________________________________________________
+Django
+To develope rest services djANGO  will provides module.
+
+HTTP verbs:
+to get data,add data,update data,delete data on server side we need to use httpp web methods are used
+            get
+            post
+            put(full update)
+            delete
+            patch-->patches partial update
+            options,head,connect,trace,lock,move etc
+
+web service provider---->web service consumer
+bmshow(consumer) <------payment gateway(provider)
+
+
+
+This app creates own web services using pure django
+________________________________________________________________
+#html response cannot be understnd by client app etc thats why json response
+so in rest api our response should understand by others so json
+    
+json(protocol for communication) module functions
+dumps()--python dict to json object---json.dumps(python_data))
+loads()---json data to python dict
+
+Command-line http clients---->to send the http requests from command propmt
+curl,HTTPie
+pip install httpie
+http http://127.0.0.1:8000/api/
+(server must be running)
+
+Main purpose of rest api/web api--to communicate with other application obver a network by using rest architcture irrespective of language
+Interoperability between software applications
+api developer->make the services available to 3rd party.
+
+send request---url pattern---127.0.0.1:8000/
+endpoint===>api_json/
+
+
+Mixin-->mixed in
+very commnly used in django
+
+mixin is the class in django--to provide functions /methods to the child class
+to provide functionality to only child class--->not to self but child
+we won't create objs for mixin class.
+code resusability purpose
+where " ABC
+
+
+
+1)general mixin and @)multiple inheritance
+1parent class instantiation is not recommended
+1in mi --parent class instatiation is possible,instance var and methods
+
+2)parent class contains only instance methods and not instance vars
+2)multiple inheritance both
+
+3)methods are useful only for child class
+3)M I ...methods are useful for both parent and child class
+
+4)can,t extendts other classes except object class
+4) in MI it is possible
+
+in django rest api--->mixin are used
+what is mixin in django  special case of multiple inheritance
+difference between MI and mixin(alone).
+
+5------>
+purpose of api,rest api,web service ,http,json,http versbs
+function based views and class based views etc.
+mixins:
+
+crud db operations using web  api without rest framework.
+model class
+
+
+status code:
+1XX--Informational
+2XX---Successful
+3XX---Redirection
+4XX--Error page not found.--->clint side error
+5XX--Server side problms--->server error
+
+one emp---emp dict---json format fo one employee it is possible
+but we have large queryset and each time covert each emp obect into dict and then into json object is not possible so serializers comes into pictures.
+
+json_data=serializers.serialize('json',queryset)
+
+
+6______________
+emp_data=serialize('json',emp,fields=['ename','eno'])
+#django serializer function   
+
+serialization--python object into json
+1)json module---dumps,loads etc
+2)django.core.serializers import serialize-->serialize('json',obj) 
+3) by using rest framework  ---todo
+
+
+mixin--code reusability
+parent class method is available for child class
+
+instead of using 
+    from django.core.serializers import serialize module
+    json module
+we can use mixin classmethods directly from .mixins.py
+
+error or exception handling is very important in api
+don't show bad error to client app directly
+modelname.doesnotexists--to handle excepotion
+
+how to add status code to response.
+while sending from api app to consumer app for a api url
+_______________________________________________________________________
+how to use get method to get data without rest
+retrive a particular record or all records
+post request:
+
+Q is it possible to dump total data ??
+way->py manage.py dumpdata api.Employee
+    provide employee data to the console.
+    default format is json format only.
+    
+    py manage.py dumpdata api.Employee
+
+    py manage.py dumpdata api.Employee --indent 4 (default behavipur json)
+
+    py manage.py dumpdata api.Employee --indent 4 --format json
+
+    py manage.py dumpdata api.Employee --indent 4 -- format xml
+
+    py manage.py dumpdata api.Employee --format json > empdata.json --indent 4
+
+this is the way to dump data from db table into json/xml file format in the current working dirctory:
+
+py manage.py dumpdata api.Employee --format json > empdata.json --indent 4
+empdata.json file will be get created in cwd
+
+yaml file format.(Yaml Ain't markup language)
+data serialixation language -used in cloud format
+CommandError: Unable to serialize database: No module named 'yaml'
+
+## to create a record  (POST method)
+
+## disable csrf:
+1.method level/function level--function based view
+from django.views.decorators.csrf import csrf_exemp
+@csrf_exempt
+def my_view(request):
+    pass
+-------------------------------------------------------
+2.class level (class based view)
+core python form disable csrf verification.
+from django.views.decorators.csrf import csrf_exemp
+from django.utils.decorators import method_decorators
+
+@methoddecorator(csrf_exemp,name='dispatch)  
+#dispatchapplication for any type of request()
+class Emplotyeelistviw(View)
+
+---------------------------------------------------------
+3.project level
+settings.py----comment csrf middleware(not allowed)
+
+
+parter app___>sending post data----django app should grap it and save it in the table
+it should provide valid data(json data)
+
+save data into db--we required ModelForm in django   forms.py
+
+_________________________________________________
+get a resource(get) and create a resource(post)
+dumpdata
+
+## update a resource (PUT)
+
+form=EmployeeForm(emp_original_data) #create a new record
+form=EmployeeForm(emp_original_data,instance=emp)  #update the existing one
+
+
+## to get particular record info
+http://127.0.0.1:8000/get_all_emp/
+
+## to get all records:
+http://127.0.0.1:8000/get_all_emp/
+
+## to create a record:
+http://127.0.0.1:8000/get_all_emp/
+
+## to update a resource :
+http://127.0.0.1:8000/get_emp/1/
+
+## to delete a resource :
+http://127.0.0.1:8000/get_emp/1/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+
+-----------------------------------------------
+9 
+framework for web api withou rest ..with two endpoints to perform all crud operations
+## actually endpoint should be one-----going to fix here
+
+
+real time coding standard:
+http://127.0.0.1:8000/aaa
+
+## endpoint with url:'http://127.0.0.1:8000/api_api/' 
+we can get single or multiple records 
+## This is for single endpoint practice
+
+
+_________---10---____________________________________ 

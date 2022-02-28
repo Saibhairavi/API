@@ -1,0 +1,92 @@
+[
+{
+    "model": "api.employee",
+    "pk": 1,
+    "fields": {
+        "eno": 100,
+        "ename": "Bhairavi",
+        "esal": 82000.0,
+        "eaddr": "Pune"
+    }
+},
+{
+    "model": "api.employee",
+    "pk": 2,
+    "fields": {
+        "eno": 200,
+        "ename": "Pradeep",
+        "esal": 85000.0,
+        "eaddr": "Chennai"
+    }
+},
+{
+    "model": "api.employee",
+    "pk": 3,
+    "fields": {
+        "eno": 300,
+        "ename": "John",
+        "esal": 90000.0,
+        "eaddr": "Hyderabad"
+    }
+},
+{
+    "model": "api.employee",
+    "pk": 4,
+    "fields": {
+        "eno": 400,
+        "ename": "Saishivani",
+        "esal": 95000.0,
+        "eaddr": "Hyderabad"
+    }
+},
+{
+    "model": "api.employee",
+    "pk": 5,
+    "fields": {
+        "eno": 5000,
+        "ename": "Sneha",
+        "esal": 111112.0,
+        "eaddr": "Delhii"
+    }
+},
+{
+    "model": "api.employee",
+    "pk": 7,
+    "fields": {
+        "eno": 800,
+        "ename": "Swara",
+        "esal": 90009.0,
+        "eaddr": "Sikkim"
+    }
+},
+{
+    "model": "api.employee",
+    "pk": 8,
+    "fields": {
+        "eno": 700,
+        "ename": "Parvathi",
+        "esal": 9000.0,
+        "eaddr": "Telangana"
+    }
+},
+{
+    "model": "api.employee",
+    "pk": 9,
+    "fields": {
+        "eno": 700,
+        "ename": "Parvathi",
+        "esal": 9000.0,
+        "eaddr": "Telangana"
+    }
+},
+{
+    "model": "api.employee",
+    "pk": 10,
+    "fields": {
+        "eno": 1000,
+        "ename": "Sairam",
+        "esal": 100000.0,
+        "eaddr": "Shirdi"
+    }
+}
+]

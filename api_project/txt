@@ -1,0 +1,326 @@
+Django Rest Framework
+Prereqst:
+    Python
+    Django
+
+The most exiting technology.
+Manditory technology.
+Django application Without rest api.
+It is Very very easy technology
+It is very very small technology.
+
+API:
+web api/web services:
+Rest api
+Django Rest Framework
+
+API:application programming interface.
+purpose:general clarity--->
+JAVA app wants to commiunicate with django app--->for these we required to provide the interface ,so they can communicate with django interface.
+
+one app wants to communicate two another app we need API.
+
+1)developed DJAngo app
+2)develop django APi
+---so that our services can be used by other apps etc.
+
+Interoperability--->
+
+web api-->develop api for this web api ..
+service provided by web app over web by using http protocol
+
+http://128.0.0.1:8000/api/1/  etc. api only
+
+python app can send request and get response..from django
+test.py
+import requests
+r=requests.get('http://127.0.0.1:8000/api/')
+data=r.json()
+print(data['item1'])
+
+Rest api restful api: 
+architectural styles--guidelines to develope web api very easily's that's alll
+api s which are developed by using rest
+
+DRF-severals tools to develop restful apis
+maps can be accessed from mobile using web api.
+role of api.
+
+1)common language is http--->
+java(linux)---python(mac)---c#(windows)---app(linux)
+2)commom message format --json (performance lightweight)
+
+how to develope the api.
+django api developers-->
+
+drf provides coding support to create web api.
+common lang--http with common message format is json format
+
+2 types of web services are available--
+1)SOAP based web services 
+2)REST restful web services json based
+
+SOAP based:
+http/smtp/ftp   supported by soap
+Data is more secured compared to rset based
+old concept with problems
+soap is always xml based whcih is old nowdays...heavy weight component
+message--envelop with extra information so heavy weight
+data is required to travel over the network from one to another ,so hight bandwidth is there
+parsing (xml data --read xml data)xml data is not easy..low performance
+implementing soap based services are complex
+
+to expose/describe web services to parter app() one common language is there)---WSDL
+
+__________________________________________________
+
+REST: 
+each unique url is associated with representation of an object(resouce) by using http verbs we can ply with that object
+to get content of thios object(get)
+crtae(post)
+upadte(put)
+delete(delete)
+based on http protocol with url
+Restful web services.
+
+1)json bsed restful web services in,
+2)lightweight component based on the structure
+3)parsinmg is easy
+4)so lightwirgt, transfer over net is easy
+5)more performance.
+6)directly we can exposes our services using url  so no req uirement of wsdl in restful
+7)high performance
+8)easy development
+9)human understandable message format
+
+problem:
+less secure
+supports mostly or only http
+json form data...limit is there on data can be sent using rest.
+
+differnce between rest and soap
+____________________________________________
+
+most of the google web services are soap based
+yahoo---rest
+ebay,amazone--both
+django---rest based only
+
+
+______________________________________________________________________________
+Django
+To develope rest services djANGO  will provides module.
+
+get data,add data,update data,delete data on server side we need to use htt[p web methods are used
+get ,post
+put(full update) and delete
+patch-->patches partial update
+
+
+options,head,connect,trace,lock,move etc
+
+web service provider---->web service consumer
+bmshow(consumer) <------payment gateway(provider)
+
+DRF--api  clauses
+
+create own web services using pure django
+________________________________________________________________
+#html response cannot be understnd by java app etc thats why json response
+    # so in rest api our response should understand by others so json
+    
+    json(protocol fpor communication) module functions
+    dumps()--python dict to json object---json.dumps(emp_data))
+    loads()---json data to python dict
+
+Command line hhtp clients---->to send the http requests from command propmt
+curl,HTTPie
+pip install httpie
+http http://127.0.0.1:8000/api/
+(server must be running)
+Main purpose of rest api/web api--to communicate with other application obver a network by using rest architcture irrespective of language
+Interoperability between software applications
+
+api developer->make the services available to 3rd party.
+
+send request---url pattern---127.0.0.1:8000/
+endpoint===>api_json/
+
+
+Mixin-->mixed in
+very commnly used in django
+
+mixin is the class in django--to provide functions /methods to the child class
+to provide functionality to only child class--->not to self but child
+we won't create objs for mixin class.
+code resusability purpose
+where " ABC
+
+
+
+1)general mixin and @)multiple inheritance
+1parent class instantiation is not recommended
+1in mi --parent class instatiation is possible,instance var and methods
+
+2)parent class contains only instance methods and not instance vars
+2)multiple inheritance both
+
+3)methods are useful only for child class
+3)M I ...methods are useful for both parent and child class
+
+4)can,t extendts other classes except object class
+4) in MI it is possible
+
+in django rest api--->mixin are used
+what is mixin in django  special case of multiple inheritance
+difference between MI and mixin(alone).
+
+5------>
+purpose of api,rest api,web service ,http,json,http versbs
+function based views and class based views etc.
+mixins:
+
+crud db operations using web  api without rest framework.
+model class
+
+
+status code:
+1XX--Informational
+2XX---Successful
+3XX---Redirection
+4XX--Error page not found.--->clint side error
+5XX--Server side problms--->server error
+
+one emp---emp dict---json format fo one employee it is possible
+but we have large queryset and each time covert each emp obect into dict and then into json object is not possible so serializers comes into pictures.
+
+json_data=serializers.serialize('json',queryset)
+
+
+6______________
+emp_data=serialize('json',emp,fields=['ename','eno'])
+#django serializer function   
+
+serialization--python object into json
+1)json module---dumps,loads etc
+2)django.core.serializers import serialize-->serialize('json',obj) 
+3) by using rest framework  ---todo
+
+
+mixin--code reusability
+parent class method is available for child class
+
+instead of using 
+    from django.core.serializers import serialize module
+    json module
+we can use mixin classmethods directly from .mixins.py
+
+error or exception handling is very important in api
+don't show bad error to client app directly
+modelname.doesnotexists--to handle excepotion
+
+how to add status code to response.
+while sending from api app to consumer app for a api url
+_______________________________________________________________________
+how to use get method to get data without rest
+retrive a particular record or all records
+post request:
+
+
+Q is it possible to dump total data ??
+way->py manage.py dumpdata api.Employee
+    provide employee data to the console.
+    default format is json format only.
+    
+    py manage.py dumpdata api.Employee
+
+    py manage.py dumpdata api.Employee --indent 4 (default behavipur json)
+
+    py manage.py dumpdata api.Employee --indent 4 --format json
+
+    py manage.py dumpdata api.Employee --indent 4 -- format xml
+
+    py manage.py dumpdata api.Employee --format json > empdata.json --indent 4
+
+this is the way to dump data from db table into json/xml file format in the current working dirctory:
+
+py manage.py dumpdata api.Employee --format json > empdata.json --indent 4
+empdata.json file will be get created in cwd
+
+yaml file format.(Yaml Ain't markup language)
+data serialixation language -used in cloud format
+CommandError: Unable to serialize database: No module named 'yaml'
+
+## to create a record  (POST method)
+
+## disable csrf:
+1.method level/function level--function based view
+from django.views.decorators.csrf import csrf_exemp
+@csrf_exempt
+def my_view(request):
+    pass
+-------------------------------------------------------
+2.class level (class based view)
+core python form disable csrf verification.
+from django.views.decorators.csrf import csrf_exemp
+from django.utils.decorators import method_decorators
+
+@methoddecorator(csrf_exemp,name='dispatch)  
+#dispatchapplication for any type of request()
+class Emplotyeelistviw(View)
+
+---------------------------------------------------------
+3.project level
+settings.py----comment csrf middleware
+
+
+parter app___>sending post data----django app should grap it and save it in the table
+it should provide valid data(json data)
+
+save data into db--we required ModelForm in django   forms.py
+
+_________________________________________________
+get a resource(get) and create a resource(post)
+dumpdata
+
+## update a resource (PUT)
+
+form=EmployeeForm(emp_original_data) #create a new record
+form=EmployeeForm(emp_original_data,instance=emp)  #update the existing one
+
+
+## to get particular record info
+http://127.0.0.1:8000/get_all_emp/
+
+## to get all records:
+http://127.0.0.1:8000/get_all_emp/
+
+## to create a record:
+http://127.0.0.1:8000/get_all_emp/
+
+## to update a resource :
+http://127.0.0.1:8000/get_emp/1/
+
+## to delete a resource :
+http://127.0.0.1:8000/get_emp/1/
+                                                                                        two endpoint are  there 1)api and 2) api/1/ etc
+
+                                                                                        all crud operations are performed using single endpoint only --->in django rest framework.               
+
+                                                                                        only single url should be there to perform all crud operations to meet the need of real api framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
+-----------------------------------------------
+9 
+framework for web api withou rest ..with two endpoints to perform all crud operations
+## actually endpoint should be one-----going to fix here
+
+
+real time coding standard:
+http://127.0.0.1:8000/aaa
+
+## endpoint with url:'http://127.0.0.1:8000/api_api/' 
+we can get single or multiple records 
+## This is for single endpoint practice
+
+
+_________---10---____________________________________ 
