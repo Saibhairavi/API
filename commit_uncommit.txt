@@ -1,3 +1,3 @@
 commit
 uncommit
-commit
+git fetch,git merge check
