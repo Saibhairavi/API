@@ -1,0 +1,1 @@
+Django pure api without rest.
